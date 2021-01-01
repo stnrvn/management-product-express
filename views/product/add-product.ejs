@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="">Products</a>
+        <a href="/products/discontinued">Discontinued Products</a>
+    </div>
+
+    <div>
+        <a href="/products">back</a>
+    </div>
+
+    <div>
+        <form action="/products/add" method="POST">
+            <div>
+            <label for="name">Nama</label>
+            <input type="text" name="name" id="name">
+            </div>
+
+            <div>
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity">
+            </div>
+
+            <div>
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price">
+            </div>
+
+            <div>
+            <label for="category_id">Category</label>
+            <select name="category_id" id="category_id">
+                <option value="">Choose...</option>
+            <% data.forEach(element => { %>
+            <option value="<%= element.id %>"><%= element.name %></option>
+            <% }) %>
+            </select>
+            </div>
+
+            <button type="submit">add</button>
+        </form>
+    </div>
+</body>
+</html>

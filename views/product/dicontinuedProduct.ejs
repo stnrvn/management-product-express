@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="/products">Products</a>
+        <a href="/products/discontinued">Discontinued Products</a>
+    </div>
+
+    <div>
+        <a href="/products">back</a>
+    </div>
+
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Nama</td>
+                    <td>Quantity</td>
+                    <td>Price</td>
+                    <td>Category</td>
+                    <td>Is Discontinue</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(element => { %>
+                <tr>
+                    <td><%= element.name %></td>
+                    <td><%= element.quantity %></td>
+                    <td><%= formatRupiah(element.price) %></td>
+                    <td><%= element.Category.name %></td>
+                    <td><%= element.is_discontinued %></td>
+                    <td><a href="/products/discontinued/<%= element.id %>/remove">Remove</a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
